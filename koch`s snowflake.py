@@ -13,18 +13,28 @@ def snowflake(t, order, size):
         koch_curve(t, order, size)
         t.right(120)
 
-# Створення вікна для малювання
-wn = turtle.Screen()
-wn.bgcolor("white")
+def main():
+    # Запит на рівень рекурсії від користувача
+    order = int(input("Введіть рівень рекурсії (ціле число більше 0): "))
+    
+    if order <= 0:
+        print("Рівень рекурсії повинен бути цілим числом більше 0.")
+        return
+    
+    # Створення вікна для малювання
+    wn = turtle.Screen()
+    wn.bgcolor("white")
 
-# Створення черепахи
-alex = turtle.Turtle()
-alex.color("blue")
-alex.speed(0)  # Найшвидше малювання
+    # Створення черепахи
+    alex = turtle.Turtle()
+    alex.color("blue")
+    alex.speed(0)  # Найшвидше малювання
 
-# Малювання сніжинки Коха
-snowflake(alex, 4, 300)
+    # Малювання сніжинки Коха з вказаним рівнем рекурсії
+    snowflake(alex, order, 300)
 
-# Завершення роботи
-wn.mainloop()
+    # Завершення роботи
+    wn.mainloop()
 
+if __name__ == "__main__":
+    main()
